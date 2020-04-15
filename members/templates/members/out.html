@@ -1,0 +1,56 @@
+{% extends 'members/main.html' %}
+{% block title %}Members Out
+{% endblock title %}
+
+
+{% block content %}
+    <div class='container'>
+        <div class='row'>
+            <div class="col col-sm"></div>
+            <div class="col col-sm"><h2>Members Out Sick</h2></div>
+            <div class="col col-sm"></div>
+        </div>
+    </div>
+    <div class='row'>
+        <div class='col'>
+            <div class='card card-body'>
+                <form method='get'>
+                    {{myFilter.form}}
+                <button class='btn btn-primary' type='submit'>Search</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    <table class="table">
+    
+        <thead class="thead-dark">
+            <tr>
+            <th scope="col">Rank</th>
+            <th scope="col">Last</th>
+            <th scope="col">First</th>
+            <th scope="col">Status</th>
+            <th scope="col">Last BHS</th>
+            <th scope="col">Next BHS</th>
+            <th scope="col">Full Duty</th>
+            <th></th>
+            </tr>
+        </thead>
+        {% for i in sick %}
+        <tbody>
+            <tr>
+            <th scope="row">{{i.rank}}</th>
+            <td>{{i.last_name}}</td>
+            <td>{{i.first_name}}</td>
+            <td>{{i.status}}</td>
+            <td>{{i.last_bhs}}</td>
+            <td>{{i.next_bhs}}</td>
+            <td>{{i.full_duty}}</td>
+            <td><a href={% url 'updateout' i.id %} class='btn btn-sm btn-primary'>Update</a></td>
+            </tr>    
+        </tbody>
+    {% endfor %}
+    </table>
+
+    <a href="{% url 'addout' %}" class='btn btn-md btn-warning'>Add Member</a>
+
+{% endblock  %}

@@ -1,0 +1,9 @@
+{% extends 'members/main.html' %}
+{% block title %}{{member.last_name}}'s Profile{% endblock title %}
+
+{% block content %}
+<h1>Hello World</h1>
+    {% for i in member %}
+        {{i.first_name}}
+    {% endfor %}
+{% endblock content %}

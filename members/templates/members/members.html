@@ -1,0 +1,29 @@
+{% extends 'members/main.html' %}
+{% comment %} {% block title %}  {{member.first_name}}'s Profile  {% endblock title %} {% endcomment %}
+
+{% block content %}
+    
+    <table class="table">
+        <thead class="thead-dark">
+            <tr>
+                <th scope="col">Last</th>
+                <th scope="col">First</th>
+                <th scope="col">Rank</th>
+                <th scope="col">Tour</th>
+                <th scope="col">Platoon</th>
+                <th scope="col">Unit</th>
+            </tr>
+        </thead>
+        {% for i in member %}
+        <tbody>
+            <tr>
+                <th scope="row"><a href={% url 'profile' i.id %}>{{i.last_name}}</a></th>
+                <td>{{i.first_name}}</td>
+                <td>{{i.rank}}</td>
+                <td>{{i.tour}}</td>
+                <td>{{i.platoon}}</td>
+                <td>{{i.unit}}</td>
+            </tr>
+        {% endfor %}
+    </table>
+{% endblock content %}
