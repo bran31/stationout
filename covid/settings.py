@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     #'floppyforms',
 
     'members',
+    'storages',
 ]
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
@@ -84,10 +85,10 @@ WSGI_APPLICATION = 'covid.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'DEMO_TEST',
-        'USER': 'postgres',
-        'PASSWORD': 'wrangler97',
-        'HOST': 'localhost',
+        'NAME': 'postgres',
+        'USER': os.environ['db_user'],
+        'PASSWORD': os.environ['db_password'],
+        'HOST': 'database-1.cdlyes6mlq9w.us-east-1.rds.amazonaws.com',
         'PORT': '5432',
     }
 }
@@ -144,3 +145,15 @@ EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 EMAIL_HOST_USER = os.environ['EMAIL_HOST_USER']
 EMAIL_HOST_PASSWORD = os.environ['EMAIL_HOST_PASSWORD']
+
+
+
+#S3 BUCKETS CONFIG
+
+AWS_ACCESS_KEY_ID = os.environ['s3_access_key']
+AWS_SECRET_ACCESS_KEY = os.environ['s3_secret_key']
+AWS_STORAGE_BUCKET_NAME = '43-station-bucket'
+AWS_S3_FILE_OVERWRITE = False
+AWS_DEFAULT_ACL = None
+DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+STATICFILES_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
