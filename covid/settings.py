@@ -135,10 +135,10 @@ USE_TZ = True
 
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
-STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'static')
-]
-
+# STATICFILES_DIRS = [
+#     os.path.join(BASE_DIR, 'static')
+# ]
+COMPRESS_ENABLED = os.environ.get('COMPRESS_ENABLED', False)
 #SMTP Config
 
 
@@ -166,4 +166,3 @@ STATICFILES_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
 
 django_heroku.settings(locals())
 
-COMPRESS_ENABLED = os.environ.get('COMPRESS_ENABLED', False)
