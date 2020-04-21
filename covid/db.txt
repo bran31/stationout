@@ -1,0 +1,1 @@
+postgres://bran31:Spring2020@database-1.cdlyes6mlq9w.us-east-1.rds.amazonaws.com:/postgres
