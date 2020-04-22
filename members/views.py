@@ -1,7 +1,7 @@
 from django.http import HttpResponse
 from django.shortcuts import render, redirect
 from django.contrib.auth.forms import UserCreationForm
-
+from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.contrib.auth import authenticate, login, logout
 
 from django.contrib.auth.decorators import login_required
@@ -23,7 +23,7 @@ def index(request):
 @login_required(login_url='login')
 @allowed_users(allowed_roles=['officers'])
 def out(request):
-    sick = Quarintine.objects.all()
+    sick = Quarintine.objects.all().order_by('last_name')
     myFilter = OutFilter(request.GET, queryset=sick)
     sick = myFilter.qs
     context = {
@@ -40,7 +40,7 @@ def addout(request):
         form = SickForm(request.POST)
         if form.is_valid():
             form.save()
-            return redirect('/')
+            return redirect('/out')
     context = {
         'form': form
     }
@@ -56,7 +56,7 @@ def updateout(request, pk):
         form = SickForm(request.POST, instance=member)
         if form.is_valid():
             form.save()
-            return redirect('/')
+            return redirect('/out')
     context = {
         'form': form, 
     }
@@ -66,7 +66,7 @@ def updateout(request, pk):
 @login_required(login_url='login')
 @allowed_users(allowed_roles=['officers'])
 def memberPage(request):
-    member = Profile.objects.all()
+    member = Profile.objects.all().order_by('last_name')
 
     context = {
         'member': member
@@ -76,6 +76,50 @@ def memberPage(request):
 
 #@login_required(login_url='login')
 #@allowed_users(allowed_roles=['officers'])
+def memberProfileView(request, pk):
+    memberprofile = Profile.objects.filter(id=pk)
+
+    context = {
+        'memberprofile': memberprofile,
+    }
+
+    return render(request, 'members/profile.html', context)
+
+
+@login_required(login_url='login')
+@allowed_users(allowed_roles=['officers'])
+def addProfileView(request):
+    form = AddMemberProfile()
+    if request.method == 'POST':
+        form = AddMemberProfile(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('/members')
+    context = {
+        'form': form
+    }
+    return render(request, 'members/add_profile.html', context)
+
+@login_required(login_url='login')
+@allowed_users(allowed_roles=['officers'])
+def profileupdate(request, pk):
+    member = Profile.objects.get(id=pk)
+    form = AddMemberProfile(instance=member)
+
+    if request.method == 'POST':
+        form = AddMemberProfile(request.POST, instance=member)
+        if form.is_valid():
+            form.save()
+            return redirect('/members')
+    context = {
+        'form': form, 
+    }
+
+    return render(request, 'members/add_profile.html', context)
+
+
+@login_required(login_url='login')
+@allowed_users(allowed_roles=['officers'])
 def memberProfile(request, pk):
     member = Profile.objects.get(id=pk)
 
@@ -83,6 +127,7 @@ def memberProfile(request, pk):
         'member': member
     }
     return render(request, 'members/profile.html', context)
+
 
 def returnPage(request):
     context = {}

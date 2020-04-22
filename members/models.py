@@ -55,7 +55,11 @@ class Profile(models.Model):
         ('A', 'A'),
         ('B', 'B'),
         ('C', 'C'),
-        ('D', 'D'),        
+        ('D', 'D'),      
+        ('E', 'E'),
+        ('F', 'F'),
+        ('G', 'G'),
+        ('H', 'H'),  
     ]
 
     unit = [
@@ -74,7 +78,13 @@ class Profile(models.Model):
         ('C43', 'C43'),
         ('B43', 'B43'),
     ]
-    user = models.OneToOneField(User, null=True, on_delete=models.CASCADE)
+
+    cert = [
+        ('EMT', 'EMT'),
+        ('Paramedic', 'Paramedic'),
+    ]
+
+    user = models.OneToOneField(User, blank=True, null=True, on_delete=models.CASCADE)
     last_name = models.CharField(max_length=20)
     first_name = models.CharField(max_length=20)
     rank = models.CharField(max_length=6, choices=rank)
@@ -96,6 +106,7 @@ class Profile(models.Model):
     phone = models.CharField(max_length=15,null=True, blank=True)
     contact_name = models.CharField(max_length=50,null=True, blank=True)
     contact_phone = models.CharField(max_length=15,null=True, blank=True)
+    cert = models.CharField(max_length=20, choices=cert, null=True, blank=True)
 
 
     def __str__(self):

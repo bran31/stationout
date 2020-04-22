@@ -1,5 +1,5 @@
 {% extends 'members/main.html' %}
-{% comment %} {% block title %}  {{member.first_name}}'s Profile  {% endblock title %} {% endcomment %}
+{% block title %}  Members  {% endblock title %}
 
 {% block content %}
     
@@ -26,4 +26,6 @@
             </tr>
         {% endfor %}
     </table>
+
+<a href={% url 'add_profile' %}  class='btn btn-primary'>Add Members</a>
 {% endblock content %}

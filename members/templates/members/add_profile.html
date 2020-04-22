@@ -2,7 +2,7 @@
 {% load crispy_forms_tags %}
 
 {% block content %}
-<form action='' method='POST'>
+    <form action='' method='POST'>
     {% csrf_token %}
     <div class='container-fluid'>
         <div class='row'>
@@ -11,6 +11,7 @@
             </div>
         </div>
     </div>
-    <input type='submit' class='btn btn-sm btn-warning' value='Add/Update Member'>
+    <input type='submit' class='btn btn-sm btn-warning' value='Add Member'>
 </form>
+
 {% endblock content %}
