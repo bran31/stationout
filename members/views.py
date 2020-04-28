@@ -213,3 +213,15 @@ def tour3(request):
     }
  
     return render(request, 'members/tour3.html', context)
+
+
+@login_required(login_url='login')
+@allowed_users(allowed_roles=['officers'])
+def als(request):
+    member = Profile.objects.filter(rank='Medic').order_by('ted', 'oda', 'lastfive')
+
+    context = {
+        'member': member
+    }
+ 
+    return render(request, 'members/als.html', context)
