@@ -18,6 +18,13 @@ urlpatterns = [
     path('register/', views.register, name='register'),
     path('login/', views.loginPage, name='login'),
     path('logout/', views.logoutUser, name='logout'),
+    path('tour1/', views.tour1, name='tour1'),
+    path('tour2/', views.tour2, name='tour2'),
+    path('tour3/', views.tour3, name='tour3'),
+
+
+
+
 
     path('reset_password', auth_views.PasswordResetView.as_view(template_name='members/password_reset.html'), name='reset_password'),
     path('reset_password_sent', auth_views.PasswordResetDoneView.as_view(template_name='members/password_reset_sent.html'), name='password_reset_done'),

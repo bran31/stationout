@@ -1,6 +1,5 @@
 {% extends 'members/main.html' %}
-{% block title %}Members Out
-{% endblock title %}
+{% block title %} Members Out {% endblock title %}
 {% block head %}
 
 {% endblock head %}
@@ -27,9 +26,9 @@
         <table id="table_id" class="table">
             <thead class="thead-dark">
                 <tr>
-                <th scope="col">Rank</th>
                 <th scope="col">Last</th>
                 <th scope="col">First</th>
+                <th scope="col">Rank</th>
                 <th scope="col">Status</th>
                 <th scope="col">Last BHS</th>
                 <th scope="col">Next BHS</th>
@@ -40,9 +39,9 @@
             <tbody>
             {% for i in sick %}
                 <tr>
-                <th scope="row">{{i.rank}}</th>
-                <td>{{i.last_name}}</td>
+                <th scope="row">{{i.last_name}}</th>
                 <td>{{i.first_name}}</td>
+                <td>{{i.rank}}</td>
                 <td>{{i.status}}</td>
                 <td>{{i.last_bhs}}</td>
                 <td>{{i.next_bhs}}</td>

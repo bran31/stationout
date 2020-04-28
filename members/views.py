@@ -74,8 +74,8 @@ def memberPage(request):
  
     return render(request, 'members/members.html', context)
 
-#@login_required(login_url='login')
-#@allowed_users(allowed_roles=['officers'])
+@login_required(login_url='login')
+@allowed_users(allowed_roles=['officers'])
 def memberProfileView(request, pk):
     memberprofile = Profile.objects.filter(id=pk)
 
@@ -181,3 +181,35 @@ def logoutUser(request):
     return redirect('login')
 
 
+@login_required(login_url='login')
+@allowed_users(allowed_roles=['officers'])
+def tour1(request):
+    member = Profile.objects.filter(tour='1')
+
+    context = {
+        'member': member
+    }
+ 
+    return render(request, 'members/tour1.html', context)
+
+@login_required(login_url='login')
+@allowed_users(allowed_roles=['officers'])
+def tour2(request):
+    member = Profile.objects.filter(tour='2')
+
+    context = {
+        'member': member
+    }
+ 
+    return render(request, 'members/tour2.html', context)
+
+@login_required(login_url='login')
+@allowed_users(allowed_roles=['officers'])
+def tour3(request):
+    member = Profile.objects.filter(tour='3')
+
+    context = {
+        'member': member
+    }
+ 
+    return render(request, 'members/tour3.html', context)
