@@ -22,6 +22,8 @@ urlpatterns = [
     path('tour2/', views.tour2, name='tour2'),
     path('tour3/', views.tour3, name='tour3'),
     path('als/', views.als, name='als'),
+    path('bls/', views.bls, name='bls'),
+    path('officers/', views.officers, name='officers'),
 
 
 

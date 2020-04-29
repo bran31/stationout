@@ -190,7 +190,7 @@ def tour1(request):
         'member': member
     }
  
-    return render(request, 'members/tour1.html', context)
+    return render(request, 'members/tour.html', context)
 
 @login_required(login_url='login')
 @allowed_users(allowed_roles=['officers'])
@@ -201,7 +201,7 @@ def tour2(request):
         'member': member
     }
  
-    return render(request, 'members/tour2.html', context)
+    return render(request, 'members/tour.html', context)
 
 @login_required(login_url='login')
 @allowed_users(allowed_roles=['officers'])
@@ -212,7 +212,7 @@ def tour3(request):
         'member': member
     }
  
-    return render(request, 'members/tour3.html', context)
+    return render(request, 'members/tour.html', context)
 
 
 @login_required(login_url='login')
@@ -225,3 +225,27 @@ def als(request):
     }
  
     return render(request, 'members/als.html', context)
+
+
+@login_required(login_url='login')
+@allowed_users(allowed_roles=['officers'])
+def officers(request):
+    member = Profile.objects.filter(rank='Lt').order_by('ted', 'oda', 'lastfive')
+
+    context = {
+        'member': member
+    }
+ 
+    return render(request, 'members/officers.html', context)
+
+
+@login_required(login_url='login')
+@allowed_users(allowed_roles=['officers'])
+def bls(request):
+    member = Profile.objects.filter(rank='EMT').order_by('oda', 'lastfive')
+
+    context = {
+        'member': member
+    }
+ 
+    return render(request, 'members/bls.html', context)

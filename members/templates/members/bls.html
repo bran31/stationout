@@ -1,0 +1,68 @@
+{% extends 'members/main.html' %}
+{% block title %} EMT's {% endblock title %}
+
+{% block content %}
+
+<div class='container-fluid'>
+    <div class='row'>
+        <div class='col'>
+            <div class='card card-body'>
+                <div class='text-center'><h1>EMT's</h1></div>
+                <table id="table_id2" class="table">
+                    <thead class="thead-dark">
+                        <tr>
+                            <th scope="col">Last</th>
+                            <th scope="col">First</th>
+                            <th scope="col">Tour</th>
+                            <th scope="col">Platoon</th>
+                            <th scope="col">Unit</th>
+                            <th scope="col">ODA</th>
+                            <th scope="col">Last 5</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    {% for i in member %}
+                    
+                        <tr>
+                            <th scope="row"><a href={% url 'profile' i.id %}>{{i.last_name}}</a></th>
+                            <td>{{i.first_name}}</td>
+                            <td>{{i.tour}}</td>
+                            <td>{{i.platoon}}</td>
+                            <td>{{i.unit}}</td>
+                            <td>{{i.oda}}</td>
+                            <td>{{i.lastfive}}</td>
+                        </tr>
+                    
+                    {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock content %}
+{% block js %}
+<script src="https://code.jquery.com/jquery-3.5.0.min.js" integrity="sha256-xNzN2a4ltkB44Mc/Jz3pT4iU1cmeR0FkXs4pru/JxaQ=" crossorigin="anonymous"></script>
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/jszip-2.5.0/dt-1.10.20/b-1.6.1/b-html5-1.6.1/datatables.min.css"/>
+ 
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/pdfmake.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/vfs_fonts.js"></script>
+<script type="text/javascript" src="https://cdn.datatables.net/v/dt/jszip-2.5.0/dt-1.10.20/b-1.6.1/b-html5-1.6.1/datatables.min.js"></script>
+
+
+<script>
+
+$(document).ready( function () {
+    $('#table_id2').DataTable( {
+        ordering: false,
+    dom: 'B<"clear">lfrtip',
+    buttons: {
+     name: 'primary',
+     buttons: [ 'copy', 'csv', 'excel', 'pdf' ] 
+    }
+    });
+} );
+
+</script>
+{% endblock js %}
