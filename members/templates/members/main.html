@@ -16,9 +16,9 @@
 <body> 
 {% include 'members/nav_bar.html' %}
 <div class='row'>
-    <div class='col col-1'>
+    {% comment %} <div class='col col-1'>
     {% include 'members/side.html' %}
-    </div>
+    </div> {% endcomment %}
     <div class='col col-11'>
         {% block content %}
         {% endblock  %}
