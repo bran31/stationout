@@ -40,7 +40,7 @@ INSTALLED_APPS = [
 
     'crispy_forms',
     'django_filters',
-    #'floppyforms',
+    'rest_framework',
 
     'members',
     'storages',
