@@ -77,6 +77,7 @@ class Profile(models.Model):
         ('43D', '43D'),
         ('C43', 'C43'),
         ('B43', 'B43'),
+        ('VR', 'VR'),
     ]
 
     cert = [
@@ -105,6 +106,7 @@ class Profile(models.Model):
     zipcode = models.CharField(max_length=10,null=True, blank=True)
     phone = models.CharField(max_length=15,null=True, blank=True)
     contact_name = models.CharField(max_length=50,null=True, blank=True)
+    relationship = models.CharField(max_length=100, null=True, blank=True)
     contact_phone = models.CharField(max_length=15,null=True, blank=True)
     cert = models.CharField(max_length=20, choices=cert, null=True, blank=True)
 

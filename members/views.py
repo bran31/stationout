@@ -7,17 +7,20 @@ from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import Group
 
+from django.contrib import messages
+
 from .models import *
 from .forms import *
 from .filters import *
 from .decorators import *
 
 # Create your views here.
+
+
 @login_required(login_url='login')
 def index(request):
-    context = { }
+    context = {}
     return render(request, 'members/index.html', context)
-
 
 
 @login_required(login_url='login')
@@ -46,6 +49,7 @@ def addout(request):
     }
     return render(request, 'members/addout.html', context)
 
+
 @login_required(login_url='login')
 @allowed_users(allowed_roles=['officers'])
 def updateout(request, pk):
@@ -58,10 +62,11 @@ def updateout(request, pk):
             form.save()
             return redirect('/out')
     context = {
-        'form': form, 
+        'form': form,
     }
-    
+
     return render(request, 'members/addout.html', context)
+
 
 @login_required(login_url='login')
 @allowed_users(allowed_roles=['officers'])
@@ -71,8 +76,9 @@ def memberPage(request):
     context = {
         'member': member
     }
- 
+
     return render(request, 'members/members.html', context)
+
 
 @login_required(login_url='login')
 @allowed_users(allowed_roles=['officers'])
@@ -100,6 +106,7 @@ def addProfileView(request):
     }
     return render(request, 'members/add_profile.html', context)
 
+
 @login_required(login_url='login')
 @allowed_users(allowed_roles=['officers'])
 def profileupdate(request, pk):
@@ -112,7 +119,7 @@ def profileupdate(request, pk):
             form.save()
             return redirect('/members')
     context = {
-        'form': form, 
+        'form': form,
     }
 
     return render(request, 'members/add_profile.html', context)
@@ -123,7 +130,7 @@ def profileupdate(request, pk):
 def memberProfile(request, pk):
     member = Profile.objects.get(id=pk)
 
-    context = { 
+    context = {
         'member': member
     }
     return render(request, 'members/profile.html', context)
@@ -132,7 +139,6 @@ def memberProfile(request, pk):
 def returnPage(request):
     context = {}
     return render(request, 'members/return.html', context)
-
 
 
 @unauthenticated_user
@@ -149,11 +155,12 @@ def loginPage(request):
 
         else:
             messages.info(request, 'Username or Password is incorrect')
-            
+
     context = {}
     return render(request, 'members/login.html', context)
 
-@unauthenticated_user 
+
+@unauthenticated_user
 def register(request):
     form = CreateUserForm()
 
@@ -166,7 +173,7 @@ def register(request):
             group = Group.objects.get(name='members')
             user.groups.add(group)
 
-            #message.success(request, 'Account was created for ' + username)
+            message.success(request, 'Account was created for ' + username)
             return redirect('login')
 
     context = {
@@ -189,8 +196,9 @@ def tour1(request):
     context = {
         'member': member
     }
- 
+
     return render(request, 'members/tour.html', context)
+
 
 @login_required(login_url='login')
 @allowed_users(allowed_roles=['officers'])
@@ -200,8 +208,9 @@ def tour2(request):
     context = {
         'member': member
     }
- 
+
     return render(request, 'members/tour.html', context)
+
 
 @login_required(login_url='login')
 @allowed_users(allowed_roles=['officers'])
@@ -211,31 +220,33 @@ def tour3(request):
     context = {
         'member': member
     }
- 
+
     return render(request, 'members/tour.html', context)
 
 
 @login_required(login_url='login')
 @allowed_users(allowed_roles=['officers'])
 def als(request):
-    member = Profile.objects.filter(rank='Medic').order_by('ted', 'oda', 'lastfive')
+    member = Profile.objects.filter(
+        rank='Medic').order_by('ted', 'oda', 'lastfive')
 
     context = {
         'member': member
     }
- 
+
     return render(request, 'members/als.html', context)
 
 
 @login_required(login_url='login')
 @allowed_users(allowed_roles=['officers'])
 def officers(request):
-    member = Profile.objects.filter(rank='Lt').order_by('ted', 'oda', 'lastfive')
+    member = Profile.objects.filter(
+        rank='Lt').order_by('ted', 'oda', 'lastfive')
 
     context = {
         'member': member
     }
- 
+
     return render(request, 'members/officers.html', context)
 
 
@@ -247,5 +258,5 @@ def bls(request):
     context = {
         'member': member
     }
- 
+
     return render(request, 'members/bls.html', context)

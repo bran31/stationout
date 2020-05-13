@@ -66,9 +66,9 @@
 					</form>
 
 				</div>
-                    {% comment %} {% for message in messages %}
+                    {% for message in messages %}
                         <p id='messages'>{{message}}</P>
-                    {% endfor %} {% endcomment %}
+                    {% endfor %}
 				<div class="mt-4">
 					<div class="d-flex justify-content-center links">
 						Don't have an account? <a href="{% url 'register' %}" class="ml-2">Sign Up</a> 
