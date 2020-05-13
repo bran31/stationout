@@ -11,11 +11,11 @@
             <div class="card-body">
                 <h5 class="card-title">Tour {{i.tour}}  |  {{i.platoon}} Platoon  |  {{i.unit}}</h5>
                 <p class="card-text">Phone: <b>{{i.phone}}</b></p>
-                <p class="card-text">Address: <b>{{i.streetaddress}}  {{i.city}}, {{i.state}} {{i.zipcode}}</b></p>
+                <p class="card-text">Address: <b>{{i.streetaddress}}  <br>{{i.city}}, {{i.state}} {{i.zipcode}}</b></p>
                 <p class="card-text">Cert Level: <b>{{i.cert}}</b>  |  State Number: <b>{{i.statenumber}}</b>  |  State Exp: <b>{{ i.stateexp }}</b>  |  Mac Exp: <b>{{i.macexp}}</b></p>
                 <p class="card-text">City Start Date: <b>{{i.oda}}</b> |  Title Entry Date: <b>{{i.ted}}</b>  |  Last 5: <b>{{i.lastfive}}</b>  </p>
                 <h5 class='card-title'>EMERGENCY CONTACT:</h5>
-                <p class="card-text"><b>{{i.contact_name}} | {{i.contact_phone}}</b></p>
+                <p class="card-text"><b>{{i.contact_name}} | {{i.relationship}} | {{i.contact_phone}}</b></p>
                 <a href={% url 'members' %} class="btn btn-primary">Return to list</a>   <a href={% url 'profileupdate' i.id %} class='btn btn-success'>Edit Profile</a>
             </div>
         </div>
