@@ -22,14 +22,18 @@ class Quarintine(models.Model):
     rank = models.CharField(max_length=6, choices=rank)
     shield = models.IntegerField(null=True, blank=True)
     status = models.CharField(max_length=30, choices=status)
-    last_bhs = models.DateField(auto_now=False, auto_now_add=False, blank=True, null=True)
-    next_bhs = models.DateField(auto_now=False, auto_now_add=False, blank=True, null=True)
-    full_duty = models.DateField(auto_now=False, auto_now_add=False, blank=True, null=True)
+    last_bhs = models.DateField(
+        auto_now=False, auto_now_add=False, blank=True, null=True)
+    next_bhs = models.DateField(
+        auto_now=False, auto_now_add=False, blank=True, null=True)
+    full_duty = models.DateField(
+        auto_now=False, auto_now_add=False, blank=True, null=True)
     comment = models.CharField(max_length=200, null=True, blank=True)
 
     def __str__(self):
         return self.last_name, self.first_name
-    
+
+
 class Profile(models.Model):
     status = [
         ('Medical Leave', 'Medical Leave'),
@@ -55,11 +59,11 @@ class Profile(models.Model):
         ('A', 'A'),
         ('B', 'B'),
         ('C', 'C'),
-        ('D', 'D'),      
+        ('D', 'D'),
         ('E', 'E'),
         ('F', 'F'),
         ('G', 'G'),
-        ('H', 'H'),  
+        ('H', 'H'),
     ]
 
     unit = [
@@ -85,7 +89,9 @@ class Profile(models.Model):
         ('Paramedic', 'Paramedic'),
     ]
 
-    user = models.OneToOneField(User, blank=True, null=True, on_delete=models.CASCADE)
+    user = models.OneToOneField(
+        User, blank=True, null=True, on_delete=models.CASCADE)
+    #image = models.ImageField(default='profile.jpg', upload_to='profile_pics')
     last_name = models.CharField(max_length=20)
     first_name = models.CharField(max_length=20)
     rank = models.CharField(max_length=6, choices=rank)
@@ -94,22 +100,25 @@ class Profile(models.Model):
     platoon = models.CharField(max_length=2, choices=platoon)
     unit = models.CharField(max_length=3, choices=unit)
     status = models.CharField(max_length=30, choices=status)
-    oda = models.DateField(auto_now=False, auto_now_add=False, blank=True, null=True)
-    ted = models.DateField(auto_now=False, auto_now_add=False, blank=True, null=True)
+    oda = models.DateField(
+        auto_now=False, auto_now_add=False, blank=True, null=True)
+    ted = models.DateField(
+        auto_now=False, auto_now_add=False, blank=True, null=True)
     lastfive = models.IntegerField(null=True, blank=True)
     statenumber = models.IntegerField(null=True, blank=True)
-    stateexp = models.DateField(auto_now=False, auto_now_add=False, blank=True, null=True)
-    macexp = models.DateField(auto_now=False, auto_now_add=False, blank=True, null=True)
+    stateexp = models.DateField(
+        auto_now=False, auto_now_add=False, blank=True, null=True)
+    macexp = models.DateField(
+        auto_now=False, auto_now_add=False, blank=True, null=True)
     streetaddress = models.CharField(max_length=50, null=True, blank=True)
     city = models.CharField(max_length=50, null=True, blank=True)
     state = models.CharField(max_length=50, null=True, blank=True)
-    zipcode = models.CharField(max_length=10,null=True, blank=True)
-    phone = models.CharField(max_length=15,null=True, blank=True)
-    contact_name = models.CharField(max_length=50,null=True, blank=True)
+    zipcode = models.CharField(max_length=10, null=True, blank=True)
+    phone = models.CharField(max_length=15, null=True, blank=True)
+    contact_name = models.CharField(max_length=50, null=True, blank=True)
     relationship = models.CharField(max_length=100, null=True, blank=True)
-    contact_phone = models.CharField(max_length=15,null=True, blank=True)
+    contact_phone = models.CharField(max_length=15, null=True, blank=True)
     cert = models.CharField(max_length=20, choices=cert, null=True, blank=True)
-
 
     def __str__(self):
         return self.last_name

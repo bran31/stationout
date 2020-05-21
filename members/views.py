@@ -19,7 +19,8 @@ from .decorators import *
 
 @login_required(login_url='login')
 def index(request):
-    context = {}
+    member = Profile.objects.all()
+    context = {'member': member}
     return render(request, 'members/index.html', context)
 
 

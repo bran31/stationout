@@ -9,9 +9,11 @@
                 <h1>{{i.rank}} {{i.first_name}} {{i.last_name}} | {{i.shield}}</h1>
             </div>
             <div class="card-body">
-                <h5 class="card-title">Tour {{i.tour}}  |  {{i.platoon}} Platoon  |  {{i.unit}}</h5>
+                <p class="card-text"> <img src= '{{i.image}}' /> </p><hr>
+                <h5 class="card-title">Tour {{i.tour}}  |  {{i.platoon}} Platoon  |  {{i.unit}}</h5><hr>
                 <p class="card-text">Phone: <b>{{i.phone}}</b></p>
-                <p class="card-text">Address: <b>{{i.streetaddress}}  <br>{{i.city}}, {{i.state}} {{i.zipcode}}</b></p>
+                <p class="card-text">Address: <b>{{i.streetaddress}}</b></p>
+                <p class="card-text">City: <b>{{i.city}}</b> | State: <b>{{i.state}}</b> | Zip: <b>{{i.zipcode}}</b></p>
                 <p class="card-text">Cert Level: <b>{{i.cert}}</b>  |  State Number: <b>{{i.statenumber}}</b>  |  State Exp: <b>{{ i.stateexp }}</b>  |  Mac Exp: <b>{{i.macexp}}</b></p>
                 <p class="card-text">City Start Date: <b>{{i.oda}}</b> |  Title Entry Date: <b>{{i.ted}}</b>  |  Last 5: <b>{{i.lastfive}}</b>  </p>
                 <h5 class='card-title'>EMERGENCY CONTACT:</h5>

@@ -13,6 +13,7 @@ https://docs.djangoproject.com/en/3.0/ref/settings/
 import dj_database_url
 import os
 import django_heroku
+
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -38,13 +39,12 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'storages',
-
     'crispy_forms',
     'django_filters',
     'rest_framework',
-
     'members',
+    'storages',
+    'django_sass',
 ]
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
@@ -133,12 +133,12 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
-#STATIC_URL = '/static/'
-#STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+STATIC_URL = '/static/'
+MEDIA_URL = '/media/'
 
-# STATICFILES_DIRS = [
-#     os.path.join(BASE_DIR, 'static')
-# ]
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+
+STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
 # COMPRESS_ENABLED = os.environ.get('COMPRESS_ENABLED', False)
 # SMTP Config
 
@@ -150,18 +150,35 @@ EMAIL_USE_TLS = True
 EMAIL_HOST_USER = os.environ['EMAIL_HOST_USER']
 EMAIL_HOST_PASSWORD = os.environ['EMAIL_HOST_PASSWORD']
 
+#USE_S3 = os.getenv('USE_S3') == 'TRUE'
+
+
+# if USE_S3:
 # S3 BUCKETS CONFIG
+# AWS_ACCESS_KEY_ID = os.environ.get('s3_access_key')
+# AWS_SECRET_ACCESS_KEY = os.environ.get('s3_secret_key')
+# AWS_STORAGE_BUCKET_NAME = os.environ.get('s3_bucket')
+# AWS_DEFAULT_ACL = "public-read"
+# AWS_S3_FILE_OVERWRITE = False
+# AWS_DEFAULT_ACL = None
+# AWS_S3_CUSTOM_DOMAIN = f'{AWS_STORAGE_BUCKET_NAME}.s3.amazonaws.com'
+# AWS_S3_OBJECT_PARAMETERS = {'CacheControl': 'max-age=86400'}
+# # s3 static settings
+# AWS_LOCATION = 'static'
+# STATIC_URL = f'https://{AWS_S3_CUSTOM_DOMAIN}/{AWS_LOCATION}/'
+
+# DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+# STATICFILES_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+
+# # else:
+# #     STATIC_URL = '/staticfiles/'
+# #     STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 
-AWS_ACCESS_KEY_ID = os.environ.get('s3_access_key')
-AWS_SECRET_ACCESS_KEY = os.environ.get('s3_secret_key')
-AWS_STORAGE_BUCKET_NAME = os.environ.get('s3_bucket')
+# #STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static'),)
 
-AWS_S3_FILE_OVERWRITE = False
-AWS_DEFAULT_ACL = None
-
-DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
-STATICFILES_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+#MEDIA_URL = '/mediafiles/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'mediafiles')
 
 # Configure Django app for Heroku
 
