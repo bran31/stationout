@@ -6,50 +6,43 @@
 
 {% block content %}
 <div class='container-fluid'>
-    <div class='row'>
-        <div class='col'>
-            <div class='card card-body'>
-                {% comment %} <form method='get'>
-                    {{myFilter.form}}
-                <button class='btn btn-primary' type='submit'>Search</button>
-                </form> {% endcomment %}
-                <h2 class='text-center'>Members Out Sick</h2>
-                
-            </div>
-            
+    <div class='card'>
+        <div class='card-header'>
+            <h2 class='text-center'>Members Out Sick</h2>
         </div>
-    </div>
-    <div class='card card-body'>
-        <table id="table_id" class="table">
-            <thead class="thead-dark">
-                <tr>
-                <th scope="col">Last</th>
-                <th scope="col">First</th>
-                <th scope="col">Rank</th>
-                <th scope="col">Status</th>
-                <th scope="col">Last BHS</th>
-                <th scope="col">Next BHS</th>
-                <th scope="col">Full Duty</th>
-                <th></th>
-                </tr>
-            </thead>
-            <tbody>
-            {% for i in sick %}
-                <tr>
-                <th scope="row"><a href={% url 'updateout' i.id %}>{{i.last_name}}</a></th>
-                <td>{{i.first_name}}</td>
-                <td>{{i.rank}}</td>
-                <td>{{i.status}}</td>
-                <td>{{i.last_bhs}}</td>
-                <td>{{i.next_bhs}}</td>
-                <td>{{i.full_duty}}</td>
-                <td></td>
-                </tr>    
-            {% endfor %}
-            </tbody>
-        </table>
-        <hr />
-        <a href="{% url 'addout' %}" class='btn btn-md btn-primary'>Add Member Out</a>
+        <div class='card-body'>
+            <table id="table_id" class="table">
+                <thead class="thead-dark">
+                    <tr>
+                    <th scope="col">Last</th>
+                    <th scope="col">First</th>
+                    <th scope="col">Rank</th>
+                    <th scope="col">Status</th>
+                    <th scope="col">Last BHS</th>
+                    <th scope="col">Next BHS</th>
+                    <th scope="col">Full Duty</th>
+                    <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                {% for i in sick %}
+                    <tr>
+                    <th scope="row"><a href={% url 'updateout' i.id %}>{{i.last_name}}</a></th>
+                    <td>{{i.first_name}}</td>
+                    <td>{{i.rank}}</td>
+                    <td>{{i.status}}</td>
+                    <td>{{i.last_bhs}}</td>
+                    <td>{{i.next_bhs}}</td>
+                    <td>{{i.full_duty}}</td>
+                    <td></td>
+                    </tr>    
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        <div class='card-footer'>        
+            <a href="{% url 'addout' %}" class='btn btn-md btn-primary'>Add Member Out</a>
+        </div>
     </div>
 </div>
     
