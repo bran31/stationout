@@ -77,12 +77,12 @@
         <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
             <h6 class="collapse-header">Tours:</h6>
-            <a class="collapse-item" href="{% url 'tour1' %}">Tour 1</a>
+            {% comment %} <a class="collapse-item" href="{% url 'tour1' %}">Tour 1</a> {% endcomment %}
             <a class="collapse-item" href="{% url 'tour2' %}">Tour 2</a>
             <a class="collapse-item" href="{% url 'tour3' %}">Tour 3</a>
             <div class="collapse-divider"></div>
             <h6 class="collapse-header">Platoons:</h6>
-            <a class="collapse-item" href="{% url 'aplt' %}">A Platoon</a>
+            <a class="collapse-item disabled" href="{% url 'aplt' %}">A Platoon</a>
             <a class="collapse-item" href="{% url 'bplt' %}">B Platoon</a>
             <a class="collapse-item" href="{% url 'cplt' %}">C Platoon</a>
             <a class="collapse-item" href="{% url 'eplt' %}">E Platoon</a>
