@@ -261,3 +261,75 @@ def bls(request):
     }
 
     return render(request, 'members/bls.html', context)
+
+
+@login_required(login_url='login')
+@allowed_users(allowed_roles=['officers'])
+def aplt(request):
+    member = Profile.objects.filter(platoon='A')
+
+    context = {
+        'member': member
+    }
+
+    return render(request, 'members/platoon.html', context)
+
+
+@login_required(login_url='login')
+@allowed_users(allowed_roles=['officers'])
+def bplt(request):
+    member = Profile.objects.filter(platoon='B')
+
+    context = {
+        'member': member
+    }
+
+    return render(request, 'members/platoon.html', context)
+
+
+@login_required(login_url='login')
+@allowed_users(allowed_roles=['officers'])
+def cplt(request):
+    member = Profile.objects.filter(platoon='C')
+
+    context = {
+        'member': member
+    }
+
+    return render(request, 'members/platoon.html', context)
+
+
+@login_required(login_url='login')
+@allowed_users(allowed_roles=['officers'])
+def eplt(request):
+    member = Profile.objects.filter(platoon='E')
+
+    context = {
+        'member': member
+    }
+
+    return render(request, 'members/platoon.html', context)
+
+
+@login_required(login_url='login')
+@allowed_users(allowed_roles=['officers'])
+def fplt(request):
+    member = Profile.objects.filter(platoon='F')
+
+    context = {
+        'member': member
+    }
+
+    return render(request, 'members/platoon.html', context)
+
+
+@login_required(login_url='login')
+@allowed_users(allowed_roles=['officers'])
+def otherplt(request):
+    member = Profile.objects.filter(platoon='Other')
+
+    context = {
+        'member': member
+    }
+
+    return render(request, 'members/platoon.html', context)

@@ -64,6 +64,7 @@ class Profile(models.Model):
         ('F', 'F'),
         ('G', 'G'),
         ('H', 'H'),
+        ('Other', 'Other'),
     ]
 
     unit = [
@@ -97,7 +98,7 @@ class Profile(models.Model):
     rank = models.CharField(max_length=6, choices=rank)
     shield = models.IntegerField()
     tour = models.CharField(max_length=2, choices=tour)
-    platoon = models.CharField(max_length=2, choices=platoon)
+    platoon = models.CharField(max_length=10, choices=platoon)
     unit = models.CharField(max_length=3, choices=unit)
     status = models.CharField(max_length=30, choices=status)
     oda = models.DateField(

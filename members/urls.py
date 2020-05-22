@@ -24,7 +24,12 @@ urlpatterns = [
     path('als/', views.als, name='als'),
     path('bls/', views.bls, name='bls'),
     path('officers/', views.officers, name='officers'),
-
+    path('aplt/', views.aplt, name='aplt'),
+    path('bplt/', views.bplt, name='bplt'),
+    path('cplt/', views.cplt, name='cplt'),
+    path('eplt/', views.eplt, name='eplt'),
+    path('fplt/', views.fplt, name='fplt'),
+    path('exemptions/', views.aplt, name='exemptions'),
 
 
 
