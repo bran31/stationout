@@ -5,9 +5,14 @@
 <form action='' method='POST'>
     {% csrf_token %}
     <div class='container-fluid'>
-        <div class='row'>
-            <div class='col-4'>
-                {{ form|crispy}}
+        <div class='card' style="width: 75%;">
+            <div class='card-header'>
+                <h2 class="card-title">Add/Update Member Out</h2>
+            </div>
+            <div class='card-body'> 
+                <p class="card-text">
+                    {{ form|crispy}}
+                </p>
             </div>
         </div>
     </div>
