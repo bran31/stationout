@@ -4,20 +4,20 @@
 {% block content %}
 <form action='' method='POST'>
     {% csrf_token %}
-    <div class='container'>
+    <div class='container-fluid'>
         <div class='row'>
             <div class='col-lg-6 col-sm-12 col-xs-12'>
                 <div class='card shadow-sm p-3 mb-5 bg-white rounded'>
-                    <div class='card-header'>
+                    <div class='card-header border'>
                         <h2 class="card-title">Add/Update Member Out</h2>
                     </div>
-                    <div class='card-body'> 
+                    <div class='card-body border'> 
                         <p class="card-text">
                             {{ form|crispy}}
                         </p>
                     </div>
-                    <div class='card-footer'>
-                        <input type='submit' class='btn btn-sm btn-primary' value='Add/Update Member'>
+                    <div class='card-footer text-right border'>
+                        <a href={% url 'out' %} class="btn btn-info">Return to List</a> &nbsp; &nbsp;<input type='submit' class='btn btn btn-primary' value='Add/Update Member'>
                     </div>    
                 </div>
             </div>
