@@ -10,8 +10,13 @@
     }
 </style>
 <div class='container-fluid'>
-    <div class='jumbotron text-center'><h1>Welcome to the 43 Member Page!</h1><hr>
-        <img  src="{% static 'members/img/commandcar.jpg' %}" style='object-fit: contain' class='responsive'>
+    <div class='card shadow-sm p-3 mb-5 bg-white rounded'>
+        <div class='card-header text-center text-white bg-primary border'>
+            <h1>Welcome to the 43 Member Page!</h1>
+        </div>
+        <div class='card-body border text-center'>
+            <img  src="{% static 'members/img/commandcar.jpg' %}" style='object-fit: contain' class='responsive'>
+        </div>
     </div>
 </div>
 

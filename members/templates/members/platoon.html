@@ -5,34 +5,38 @@
 <div class='container-fluid'>
     <div class='row'>
         <div class='col'>
-            <div class='card card-body shadow-sm p-3 mb-5 bg-white rounded'>
-                <div class='text-center'><h1>{{member.platoon}} Platoon</h1></div>
-                <table id="table_id2" class="table">
-                    <thead class="thead-dark">
-                        <tr>
-                            <th scope="col">Last</th>
-                            <th scope="col">First</th>
-                            <th scope='col'>Rank</th>
-                            <th scope="col">Tour</th>
-                            <th scope="col">Platoon</th>
-                            <th scope="col">Unit</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                    {% for i in member %}
-                    
-                        <tr>
-                            <th scope="row"><a href={% url 'profile' i.id %}>{{i.last_name}}</a></th>
-                            <td>{{i.first_name}}</td>
-                            <td>{{i.rank}}</td>
-                            <td>{{i.tour}}</td>
-                            <td>{{i.platoon}}</td>
-                            <td>{{i.unit}}</td>
-                        </tr>
-                    
-                    {% endfor %}
-                    </tbody>
-                </table>
+            <div class='card shadow-sm p-3 mb-5 bg-white rounded'>
+                <div class='card-header text-center text-white bg-primary border'>
+                    <h1>{{member.platoon}} Platoon</h1>
+                </div>
+                <div class='card-body border'>
+                    <table id="table_id2" class="table">
+                        <thead class="thead-dark">
+                            <tr>
+                                <th scope="col">Last</th>
+                                <th scope="col">First</th>
+                                <th scope='col'>Rank</th>
+                                <th scope="col">Tour</th>
+                                <th scope="col">Platoon</th>
+                                <th scope="col">Unit</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        {% for i in member %}
+                        
+                            <tr>
+                                <th scope="row"><a href={% url 'profile' i.id %}>{{i.last_name}}</a></th>
+                                <td>{{i.first_name}}</td>
+                                <td>{{i.rank}}</td>
+                                <td>{{i.tour}}</td>
+                                <td>{{i.platoon}}</td>
+                                <td>{{i.unit}}</td>
+                            </tr>
+                        
+                        {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
             </div>
         </div>
     </div>
