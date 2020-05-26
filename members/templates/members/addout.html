@@ -4,18 +4,23 @@
 {% block content %}
 <form action='' method='POST'>
     {% csrf_token %}
-    <div class='container-fluid'>
-        <div class='card' style="width: 75%;">
-            <div class='card-header'>
-                <h2 class="card-title">Add/Update Member Out</h2>
+    <div class='container'>
+        <div class='row'>
+            <div class='col-lg-6 col-sm-12 col-xs-12'>
+                <div class='card shadow-sm p-3 mb-5 bg-white rounded'>
+                    <div class='card-header'>
+                        <h2 class="card-title">Add/Update Member Out</h2>
+                    </div>
+                    <div class='card-body'> 
+                        <p class="card-text">
+                            {{ form|crispy}}
+                        </p>
+                    </div>
+                    <div class='card-footer'>
+                        <input type='submit' class='btn btn-sm btn-primary' value='Add/Update Member'>
+                    </div>    
+                </div>
             </div>
-            <div class='card-body'> 
-                <p class="card-text">
-                    {{ form|crispy}}
-                </p>
-            </div>
-            <input type='submit' class='btn btn-sm btn-primary' value='Add/Update Member'>
-            <br />
         </div>
     </div>
 </form>
