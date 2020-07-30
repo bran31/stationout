@@ -47,6 +47,13 @@ class AddMemberProfile(ModelForm):
             'macexp': _('REMAC Expiration'),
             'streetaddress': _('Street Address'),
             'zipcode': _('Zip Code'),
+            'contact_name': _('Contact Name'),
+            'contact_phone': _('Contact Phone Number'),
+            'contact_street_address': _('Contact Street Address'),
+            'contact_city': _('Contact City'),
+            'contact_state': _('Contact State'),
+            'contact_zipcode': _('Contact Zip Code'),
+            'cert': _('Certification Type'),
         }
 
         widgets = {

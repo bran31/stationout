@@ -120,6 +120,11 @@ class Profile(models.Model):
     contact_name = models.CharField(max_length=50, null=True, blank=True)
     relationship = models.CharField(max_length=100, null=True, blank=True)
     contact_phone = models.CharField(max_length=15, null=True, blank=True)
+    contact_street_address = models.CharField(
+        max_length=50, null=True, blank=True)
+    contact_city = models.CharField(max_length=50, null=True, blank=True)
+    contact_state = models.CharField(max_length=50, null=True, blank=True)
+    contact_zipcode = models.CharField(max_length=10, null=True, blank=True)
     cert = models.CharField(max_length=20, choices=cert, null=True, blank=True)
 
     def __str__(self):
