@@ -1,0 +1,150 @@
+* {
+  box-sizing: border-box;
+}
+
+.container {
+  max-width: 1170px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 1em;
+}
+
+.wrapper {
+  box-shadow: 0 0 20px 0 rgba(72, 94, 116, 0.7);
+  display: grid;
+  grid-template-areas:
+    "header header header header header header header header header header"
+    "firstname_label  firstname firstname firstname  lastname_label lastname lastname lastname lastname ."
+    "shield_label shield shield oda_label oda oda ted_label ted ted ."
+    "street_label streetaddress streetaddress streetaddress streetaddress streetaddress streetaddress streetaddress streetaddress . "
+    "city_label city city state_label state state zip_label zip zip .";
+  padding: 1em;
+  border-radius: 1em;
+}
+
+.wrapper > * {
+  padding: 1em;
+}
+
+.header {
+  grid-area: header;
+  justify-self: center;
+  margin: 0 0 1rem 0;
+  border-bottom: 1px solid black;
+}
+
+.firstname_label_grid {
+  grid-area: firstname_label;
+  align-self: center;
+  justify-self: right;
+  color: blue;
+}
+
+.firstname_grid {
+  grid-area: firstname;
+  align-self: center;
+  justify-self: stretch;
+}
+
+.lastname_label_grid {
+  grid-area: lastname_label;
+  align-self: center;
+  justify-self: right;
+  color: blue;
+}
+.lastname_grid {
+  grid-area: lastname;
+  align-self: center;
+  justify-self: stretch;
+}
+
+.shield_label {
+  grid-area: shield_label;
+  align-self: center;
+  justify-self: right;
+  color: blue;
+}
+
+.shield {
+  grid-area: shield;
+  align-self: center;
+  justify-self: stretch;
+}
+
+.ted_label {
+  grid-area: ted_label;
+  align-self: center;
+  justify-self: right;
+  color: blue;
+}
+
+.ted {
+  grid-area: ted;
+  align-self: center;
+  justify-self: stretch;
+}
+
+.oda_label {
+  grid-area: oda_label;
+  align-self: center;
+  justify-self: right;
+  color: blue;
+}
+
+.oda {
+  grid-area: oda;
+  align-self: center;
+  justify-self: stretch;
+}
+
+.street_label {
+  grid-area: street_label;
+  align-self: center;
+  justify-self: right;
+  color: blue;
+}
+
+.streetaddress {
+  grid-area: streetaddress;
+  align-self: center;
+  justify-self: stretch;
+}
+
+.city_label {
+  grid-area: city_label;
+  align-self: center;
+  justify-self: right;
+  color: blue;
+}
+
+.state_label {
+  grid-area: state_label;
+  align-self: center;
+  justify-self: right;
+  color: blue;
+}
+
+.zip_label {
+  grid-area: zip_label;
+  align-self: center;
+  justify-self: right;
+  color: blue;
+}
+
+.city {
+  grid-area: city;
+  align-self: center;
+  justify-self: stretch;
+}
+
+.state {
+  grid-area: state;
+  align-self: center;
+  justify-self: stretch;
+}
+
+.zip {
+  grid-area: zip;
+  align-self: center;
+  justify-self: stretch;
+}

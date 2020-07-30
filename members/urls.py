@@ -30,6 +30,7 @@ urlpatterns = [
     path('eplt/', views.eplt, name='eplt'),
     path('fplt/', views.fplt, name='fplt'),
     path('exemptions/', views.aplt, name='exemptions'),
+    path('profile_form', views.profileform, name='profile_form'),
 
 
 

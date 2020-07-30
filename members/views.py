@@ -333,3 +333,10 @@ def otherplt(request):
     }
 
     return render(request, 'members/platoon.html', context)
+
+
+def profileform(request):
+    context = {
+
+    }
+    return render(request, 'members/profile_form.html', context)

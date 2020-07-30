@@ -1,0 +1,77 @@
+{% extends 'members/main.html' %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+{% csrf_token %}
+<form method="post" action="#" >
+    <div class="container">
+        <div class="wrapper">
+            <div class="header">
+                <h1>Please Enter Members Information Below</h1>
+            </div>
+            <div class="firstname_label_grid">
+                <h5>First Name:</h5>
+            </div>
+            <div class="firstname_grid">
+                <input type="text" class="form-control" placeholder="First Name">
+            </div>            
+            <div class="lastname_label_grid">
+                <h5>Last Name:</h5>
+            </div>
+            <div class="lastname_grid">
+                <input type="text" class="form-control" placeholder="Last Name">                
+            </div>
+            <div class="shield_label">  
+                <h5>Shield:</h5>
+            </div>
+            <div class="shield">
+                <input type="text" class="form-control" placeholder="Shield">             
+            </div>
+            <div class="oda_label">  
+                <h5>ODA:</h5>
+            </div>
+            <div class="oda">
+                <input type="date" class="form-control " placeholder="ODA">                
+            </div>
+            <div class="ted_label">
+                <h5>TED:</h5>
+            </div>
+            <div class="ted">
+                <input type="date" class="form-control" placeholder="TED">               
+            </div>
+            <div class="street_label">
+                <h5>Street Address:</h5>
+            </div>
+            <div class="streetaddress">
+                <input type="text" class="form-control"  placeholder="Street Address">
+            </div>
+            
+            <div class="city_label">
+                <h5>City:</h5>
+            </div>
+            <div class="city">
+                <input type="text" class="form-control"  placeholder="City">
+            </div>
+            <div class="state_label">
+                <h5>State:</h5>
+            </div>
+            <div class="state">
+                <input type="text" class="form-control"  placeholder="State">
+            </div>
+            <div class="zip_label">
+                <h5>Zip Code:</h5>
+            </div>
+            <div class="zip">
+                <input type="text" class="form-control"  placeholder="Zip Code">
+            </div>
+            
+            {% comment %} <div class=''>
+                <a href={% url 'members' %} class="btn btn-info">Return to list</a>&nbsp; &nbsp; &nbsp; <input type='submit' class='btn btn btn-primary' value='Add/Edit Member'>
+            </div>  {% endcomment %}
+        </div>
+    </div>
+</form>
+
+
+
+{% endblock content %}
