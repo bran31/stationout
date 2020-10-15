@@ -29,8 +29,10 @@ urlpatterns = [
     path('cplt/', views.cplt, name='cplt'),
     path('eplt/', views.eplt, name='eplt'),
     path('fplt/', views.fplt, name='fplt'),
+    path('needsocial/', views.socialProfile, name='social'),
     path('exemptions/', views.aplt, name='exemptions'),
     path('profile_form', views.profileform, name='profile_form'),
+
 
 
 

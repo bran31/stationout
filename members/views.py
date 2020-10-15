@@ -137,6 +137,17 @@ def memberProfile(request, pk):
     return render(request, 'members/profile.html', context)
 
 
+@login_required(login_url='login')
+@allowed_users(allowed_roles=['officers'])
+def socialProfile(request):
+    member = Profile.objects.filter(lastfive__isnull=True)
+
+    context = {
+        'member': member
+    }
+    return render(request, 'members/members.html', context)
+
+
 def returnPage(request):
     context = {}
     return render(request, 'members/return.html', context)

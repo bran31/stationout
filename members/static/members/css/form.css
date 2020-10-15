@@ -3,7 +3,7 @@
 }
 
 .container {
-  max-width: 1170px;
+  max-width: auto;
   margin-left: auto;
   margin-right: auto;
   padding: 1em;
@@ -13,13 +13,28 @@
   box-shadow: 0 0 20px 0 rgba(72, 94, 116, 0.7);
   display: grid;
   grid-template-areas:
-    "header header header header header header header header header header"
-    "firstname_label  firstname firstname firstname  lastname_label lastname lastname lastname lastname ."
-    "shield_label shield shield oda_label oda oda ted_label ted ted ."
-    "street_label streetaddress streetaddress streetaddress streetaddress streetaddress streetaddress streetaddress streetaddress . "
-    "city_label city city state_label state state zip_label zip zip .";
+    "header header header header header header header header header header header header"
+    "firstname_label  firstname firstname firstname  lastname_label lastname lastname lastname lastname . . ."
+    "tour_label tour tour plt_label plt plt unit_label unit unit . . ."
+    "shield_label shield shield oda_label oda oda ted_label ted ted lst5_lbl lst5 lst5"
+    "street_label streetaddress streetaddress streetaddress streetaddress streetaddress streetaddress streetaddress streetaddress streetaddress . . "
+    "city_label city city state_label state state zip_label zip zip . . .";
   padding: 1em;
   border-radius: 1em;
+}
+
+.blue {
+  color: blue;
+}
+
+.label {
+  align-self: center;
+  justify-self: right;
+}
+
+.gridname {
+  align-self: center;
+  justify-self: stretch;
 }
 
 .wrapper > * {
@@ -35,116 +50,103 @@
 
 .firstname_label_grid {
   grid-area: firstname_label;
-  align-self: center;
-  justify-self: right;
-  color: blue;
 }
 
 .firstname_grid {
   grid-area: firstname;
-  align-self: center;
-  justify-self: stretch;
 }
 
 .lastname_label_grid {
   grid-area: lastname_label;
-  align-self: center;
-  justify-self: right;
-  color: blue;
 }
 .lastname_grid {
   grid-area: lastname;
-  align-self: center;
-  justify-self: stretch;
 }
 
 .shield_label {
   grid-area: shield_label;
-  align-self: center;
-  justify-self: right;
-  color: blue;
 }
 
 .shield {
   grid-area: shield;
-  align-self: center;
-  justify-self: stretch;
 }
 
 .ted_label {
   grid-area: ted_label;
-  align-self: center;
-  justify-self: right;
-  color: blue;
 }
 
 .ted {
   grid-area: ted;
-  align-self: center;
-  justify-self: stretch;
 }
 
 .oda_label {
   grid-area: oda_label;
-  align-self: center;
-  justify-self: right;
-  color: blue;
 }
 
 .oda {
   grid-area: oda;
-  align-self: center;
-  justify-self: stretch;
 }
 
 .street_label {
   grid-area: street_label;
-  align-self: center;
-  justify-self: right;
-  color: blue;
 }
 
 .streetaddress {
   grid-area: streetaddress;
-  align-self: center;
-  justify-self: stretch;
 }
 
 .city_label {
   grid-area: city_label;
-  align-self: center;
-  justify-self: right;
-  color: blue;
 }
 
 .state_label {
   grid-area: state_label;
-  align-self: center;
-  justify-self: right;
-  color: blue;
 }
 
 .zip_label {
   grid-area: zip_label;
-  align-self: center;
-  justify-self: right;
-  color: blue;
 }
 
 .city {
   grid-area: city;
-  align-self: center;
-  justify-self: stretch;
 }
 
 .state {
   grid-area: state;
-  align-self: center;
-  justify-self: stretch;
 }
 
 .zip {
   grid-area: zip;
-  align-self: center;
-  justify-self: stretch;
+}
+
+.tour_label {
+  grid-area: tour_label;
+}
+
+.tour {
+  grid-area: tour;
+}
+
+.plt_label {
+  grid-area: plt_label;
+}
+
+.unit_label {
+  grid-area: unit_label;
+}
+
+.unit {
+  grid-area: unit;
+}
+
+.lst5_lbl {
+  grid-area: lst5_lbl;
+}
+
+.lst5 {
+  grid-area: lst5;
+}
+
+.plt {
+  grid-area: plt;
 }
