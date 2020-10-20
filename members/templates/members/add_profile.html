@@ -16,10 +16,10 @@
                             {{ form|crispy}}
                         </p>
                     </div>
-                    <div class='card-footer border inline'>
-                        <a href={% url 'members' %} class="btn text-align-left btn-info">Return to list</a>
-                        <input type='submit' class='btn text-align-center btn-primary' value='Submit'>
-                        <a href={% url 'add_profile' %}  type='submit' class='btn text-align-right btn-primary'>Add Another Member</a>
+                    <div class='card-footer border row'>
+                        <div class="col-sm text-align-left"> <a href={% url 'members' %} class="btn btn-info">Return to list</a></div>
+                        <div class="col-sm text-align-center"><input type='submit' class='btn btn-primary' value='Submit'></div>
+                        <div class="col-sm text-align-right"> <a href={% url 'add_profile' %}  type='submit' class='btn btn-primary'>Add Another Member</a></div>
                     </div>
                 </div>
             </div>
