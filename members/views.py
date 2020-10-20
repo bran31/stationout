@@ -140,7 +140,8 @@ def memberProfile(request, pk):
 @login_required(login_url='login')
 @allowed_users(allowed_roles=['officers'])
 def socialProfile(request):
-    member = Profile.objects.filter(lastfive__isnull=True)
+    member = Profile.objects.filter(
+        lastfive__isnull=True).order_by('last_name')
 
     context = {
         'member': member

@@ -84,6 +84,7 @@ class Profile(models.Model):
         ('C43', 'C43'),
         ('B43', 'B43'),
         ('VR', 'VR'),
+        ('Other', 'Other'),
     ]
 
     cert = [
@@ -100,7 +101,7 @@ class Profile(models.Model):
     shield = models.IntegerField()
     tour = models.CharField(max_length=2, choices=tour)
     platoon = models.CharField(max_length=10, choices=platoon)
-    unit = models.CharField(max_length=3, choices=unit)
+    unit = models.CharField(max_length=5, choices=unit)
     status = models.CharField(max_length=30, choices=status)
     oda = models.DateField(
         auto_now=False, auto_now_add=False, blank=True, null=True)
